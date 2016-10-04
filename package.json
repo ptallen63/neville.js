@@ -1,0 +1,23 @@
+{
+  "name": "neville.js",
+  "version": "0.1.0",
+  "description": "A simple node cli script to take a csv file of emails, clean them, and out put to csv",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptallen63/neville.js.git"
+  },
+  "keywords": [
+    "email",
+    "cleaner"
+  ],
+  "author": "Paul Allen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ptallen63/neville.js/issues"
+  },
+  "homepage": "https://github.com/ptallen63/neville.js#readme"
+}
