@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ptallen63/neville.js/issues"
   },
-  "homepage": "https://github.com/ptallen63/neville.js#readme"
+  "homepage": "https://github.com/ptallen63/neville.js#readme",
+  "dependencies": {
+    "lodash": "^4.16.3"
+  }
 }
