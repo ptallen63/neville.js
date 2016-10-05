@@ -51,7 +51,7 @@ var removeDups = function (array) {
 
 		if (bar.complete) {
 	    
-			console.log(success('\n Dups removed\n'));
+			console.log(success('\n \u2713 Dups removed\n'));
 	    
 		}
 	});
@@ -91,7 +91,7 @@ var removeBlanks = function (ary) {
 
 	if (bar.complete) {
 	    
-			console.log(success('\n Blanks removed\n'));
+			console.log(success('\n \u2713 Blanks removed\n'));
 	    
 	}
 	var result = {
@@ -125,7 +125,7 @@ var removeInvalid = function (ary) {
 	});
 
 	if(bar.complete){
-		console.log(success('\n Invalid Emails removed\n'));
+		console.log(success('\n \u2713 Invalid Emails removed\n'));
 	}
 	var result = {
 		cleaned: cleaned,

@@ -86,7 +86,7 @@ stdin.addListener("data", function(d) {
 	    }
 	    //TODO:
 	    var recordsLength = data.length-1;
-	    var bar = new ProgressBar('  extracting '+recordsLength+' records from '+pathToInputFile+' [:bar] :percent', {
+	    var bar = new ProgressBar('  Extracting '+recordsLength+' records from '+pathToInputFile+' [:bar] :percent', {
 		    complete: '=',
 		    incomplete: ' ',
 		    width: 30,
@@ -102,7 +102,7 @@ stdin.addListener("data", function(d) {
 	    	
 	    })
 	    if (bar.complete){
-	    	console.log(success('\nThat is some nice data\n'));
+	    	console.log(success('\n \u2713 That is some nice data\n'));
 	    }
 	    var tmp = func.removeBlanks(records);
 	    var blanks = tmp.blanks;
