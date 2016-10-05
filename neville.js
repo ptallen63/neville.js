@@ -2,68 +2,145 @@
 var func = require ('./functions.js');
 var fs = require('fs');
 var csv = require('csv');
-
+var ProgressBar = require('progress');
 var stringify = require('csv-stringify');
+var chalk = require('chalk');
 var records = [];
+var pathToInputFile;
+var success = chalk.green.bold;
+var error = chalk.red.bold;
+var info = chalk.blue.bold;
+
 
 func.displayArt();
 
+go();
 
-var Record = func.Record;
 
-var parser = csv.parse({delimiter: ','}, function(err, data){
-    var emailPos = func.getEmailPosition(data[0]);
-    //Throw Error in Not definded
-    //TODO:
-    
+function go(){
+var stdin = process.openStdin();
 
-    var idPos = func.getIdPosition(data[0]);
-    //Throw Error in Not definded
-    //TODO:
+console.log('What is the path to your input file?');
+stdin.addListener("data", function(d) {
+   
+   	//Progess bar - Fire LongBottom Engins
+   	var bar = new ProgressBar('  Firing up the LongBottom Engines [:bar] :percent', {
+	    complete: '=',
+	    incomplete: ' ',
+	    width: 30,
+	    total: 50
+	  });
+   	 var timer = setInterval(function () {
+	  bar.tick();
+	  if (bar.complete) {
+	    console.log(success("\nLet's do this!!..... Wait were is Trevor?!?!\n"));
+	    clearInterval(timer);
+	  }
+	}, 50);
 
-    data.forEach(function (obj) {
-    	if (obj[idPos] != 'id'){
-			var record = new Record(obj[idPos],obj[emailPos]); 
-    		records.push(record);
-    	}
-    	
-    })
-    var tmp = func.removeBlanks(records);
-    var blanks = tmp.blanks;
-    tmp = func.removeDups(tmp.cleaned);
-    var dups = tmp.dups;
-    tmp = func.removeInvalid(tmp.cleaned);
-    var invalid = tmp.invalid;
-    var cleaned = tmp.cleaned;
+   	 
 
-    // console.log('clean: ', cleaned);
-    // console.log('blanks: ', blanks);
-    // console.log('dups: ', dups);
-    // console.log('invalid: ', invalid)
+    setTimeout(function() {
 
-    console.log("Total in: ",records.length);
-    console.log("cleaned: ", cleaned.length);
-    console.log("Dups: ", dups.length);
-    console.log("Invalid: ", invalid.length);
-    console.log("Blanks: ", blanks.length);
-    // console.log(records);
-    
-    var cleanedCSV = [];
-    var blanksCSV = [];
-    var dupsCSV = [];
-    var invalidCSV = [];
-    cleaned.forEach(function (record) {
-    	cleanedCSV.push([record.id,record.email]);
-    });
-    blanks.forEach(function (record) {
-    	blanksCSV.push([record.id,record.email]);
-    });
-    dups.forEach(function (record) {
-    	dupsCSV.push([record.id,record.email]);
-    });
-    invalid.forEach(function (record) {
-    	invalidCSV.push([record.id,record.email]);
-    });
+    	pathToInputFile =  d.toString().trim()
+ 		process.stdin.destroy();
+
+    	fs.stat(pathToInputFile, function(err, stat) {
+		    if(err == null) {
+		        //File exist
+		    } else if(err.code == 'ENOENT') {
+		        // file does not exist
+		        console.log(error('Uh-oh!... %s does not exist'),pathToInputFile);
+		        process.exit();
+		    } else {
+		        console.log('Some other error: ', err.code);
+		    }
+		});
+
+	 	
+	
+  	
+
+	var Record = func.Record;
+
+	var parser = csv.parse({delimiter: ','}, function(err, data){
+	    if(!data){
+	    	console.log(error('%s does not fit the required .csv format'),pathToInputFile);
+	    	process.exit();
+	    }
+	    var emailPos = func.getEmailPosition(data[0]);
+	    //Throw Error in Not definded
+	    if (emailPos == -1){
+	    	console.log(error('No Email Field Found'));
+	    	process.exit();
+	    }
+	    //TODO:
+	    
+
+	    var idPos = func.getIdPosition(data[0]);
+
+	    //Throw Error in Not definded
+	    if (idPos == -1){
+	    	console.log(error('No Id Field Found'));
+	    	process.exit();
+	    }
+	    //TODO:
+	    var recordsLength = data.length-1;
+	    var bar = new ProgressBar('  extracting '+recordsLength+' records from '+pathToInputFile+' [:bar] :percent', {
+		    complete: '=',
+		    incomplete: ' ',
+		    width: 30,
+		    total: data.length
+		  });
+	    data.forEach(function (obj) {
+
+	    	bar.tick()
+	    	if (obj[idPos] != 'id'){
+				var record = new Record(obj[idPos],obj[emailPos]); 
+	    		records.push(record);
+	    	}
+	    	
+	    })
+	    if (bar.complete){
+	    	console.log(success('\nThat is some nice data\n'));
+	    }
+	    var tmp = func.removeBlanks(records);
+	    var blanks = tmp.blanks;
+	    tmp = func.removeDups(tmp.cleaned);
+	    var dups = tmp.dups;
+	    tmp = func.removeInvalid(tmp.cleaned);
+	    var invalid = tmp.invalid;
+	    var cleaned = tmp.cleaned;
+
+	    // console.log('clean: ', cleaned);
+	    // console.log('blanks: ', blanks);
+	    // console.log('dups: ', dups);
+	    // console.log('invalid: ', invalid)
+	    console.log(info('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'));
+	    console.log("Total in: ",info(records.length));
+	    console.log("Cleaned: ", info(cleaned.length));
+	    console.log("Dups: ", info(dups.length));
+	    console.log("Invalid: ", info(invalid.length));
+	    console.log("Blanks: ", info(blanks.length));
+	    console.log(info('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'));
+	    // console.log(records);
+	    
+	    var cleanedCSV = [];
+	    var blanksCSV = [];
+	    var dupsCSV = [];
+	    var invalidCSV = [];
+	    cleaned.forEach(function (record) {
+	    	cleanedCSV.push([record.id,record.email]);
+	    });
+	    blanks.forEach(function (record) {
+	    	blanksCSV.push([record.id,record.email]);
+	    });
+	    dups.forEach(function (record) {
+	    	dupsCSV.push([record.id,record.email]);
+	    });
+	    invalid.forEach(function (record) {
+	    	invalidCSV.push([record.id,record.email]);
+	    });
 
 		stringify(cleanedCSV, function(err, output){
 		  fs.writeFile('./cleaned.csv', output, 'utf8', function (err) {
@@ -71,7 +148,7 @@ var parser = csv.parse({delimiter: ','}, function(err, data){
 			    console.log('Some error occured - file either not saved or corrupted file saved.');
 			  } else{
 			    
-			    console.log('cleaned.csv created');
+			    console.log(success('cleaned.csv created'));
 
 			  }
 			});
@@ -82,7 +159,7 @@ var parser = csv.parse({delimiter: ','}, function(err, data){
 			  if (err) {
 			    console.log('Some error occured - file either not saved or corrupted file saved.');
 			  } else{
-			    console.log('duplicates.csv created');
+			    console.log(success('duplicates.csv created'));
 			  }
 			});
 		});
@@ -92,7 +169,7 @@ var parser = csv.parse({delimiter: ','}, function(err, data){
 			  if (err) {
 			    console.log('Some error occured - file either not saved or corrupted file saved.');
 			  } else{
-			    console.log('blanks.csv created');
+			    console.log(success('blanks.csv created'));
 			  }
 			});
 		});
@@ -102,37 +179,21 @@ var parser = csv.parse({delimiter: ','}, function(err, data){
 			  if (err) {
 			    console.log('Some error occured - file either not saved or corrupted file saved.');
 			  } else{
-			    console.log('invalid.csv created');
+			    console.log(success('invalid.csv created'));
 			  }
 			});
 		});
-});
 
 
-	fs.createReadStream('./stress.csv').pipe(parser);
+	});
 
 
+	fs.createReadStream(pathToInputFile).pipe(parser);
+	},3000);
 
-/*func.displayArt();
+ });
 
-
-console.log('testArray',testArray);
-
-data = func.removeDups(testArray);
-console.log('cleaned',data.cleaned);
-console.log('dups',data.dups);
-func.progressBar('yay!');
-
-blanksRemoved = func.removeBlanks(data.cleaned);
-console.log('blanksRemoved', blanksRemoved);
-
-//invalid format
-validEmails = func.removeInvalid(blanksRemoved);
-console.log('validEmails: ', validEmails.cleaned);
-console.log('invalidEmails: ', validEmails.invalid);
-
-*/
-
+};
 
 
 

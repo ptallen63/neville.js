@@ -3,7 +3,10 @@
 var _ = require('lodash');
 var ProgressBar = require('progress');
 var figlet = require('figlet');
-
+var chalk = require('chalk');
+var success = chalk.green.bold;
+var error = chalk.red.bold;
+var info = chalk.blue.bold;
 var removeDups = function (array) {
 	 var bar = new ProgressBar('  Removing Duplicates [:bar] :percent', {
     complete: '=',
@@ -48,7 +51,7 @@ var removeDups = function (array) {
 
 		if (bar.complete) {
 	    
-			console.log('\n Dups removed\n');
+			console.log(success('\n Dups removed\n'));
 	    
 		}
 	});
@@ -88,7 +91,7 @@ var removeBlanks = function (ary) {
 
 	if (bar.complete) {
 	    
-			console.log('\n Blanks removed\n');
+			console.log(success('\n Blanks removed\n'));
 	    
 	}
 	var result = {
@@ -122,7 +125,7 @@ var removeInvalid = function (ary) {
 	});
 
 	if(bar.complete){
-		console.log('\n Invalid Emails removed\n');
+		console.log(success('\n Invalid Emails removed\n'));
 	}
 	var result = {
 		cleaned: cleaned,
