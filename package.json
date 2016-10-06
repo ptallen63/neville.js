@@ -30,7 +30,6 @@
     "csv-parse": "^1.1.7",
     "csv-stringify": "^1.0.4",
     "figlet": "^1.2.0",
-    "fs": "0.0.1-security",
     "lodash": "^4.16.3",
     "progress": "^1.1.8"
   },
