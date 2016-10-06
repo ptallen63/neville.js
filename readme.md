@@ -12,8 +12,10 @@
  - [x] Display Art
  - [x] Grab CSV file
  - [x] Record Class
- - [ ] Style Icons
- - [ ] Output to CSV File
- - [ ] Flags
+ - [x] Style Icons
+ - [x] Output to CSV File
+ - [ ] Have output files go to an particular folder??
+ - [x] Flags
  - [ ] Make NPM package
- - [ ] Give simple global comand
+ - [x] Give simple global comand
+ - [ ] Make Help Page

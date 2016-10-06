@@ -1,8 +1,8 @@
 {
-  "name": "neville.js",
+  "name": "neville",
   "version": "0.1.0",
   "description": "A simple node cli script to take a csv file of emails, clean them, and out put to csv",
-  "main": "index.js",
+  
   "scripts": {
     "test": "test"
   },
@@ -14,6 +14,12 @@
     "email",
     "cleaner"
   ],
+  "bin": {
+    "neville": "bin/neville.js"
+  },
+  "main" : "./lib/index.js",
+  "preferGlobal": "true",
+
   "author": "Paul Allen",
   "license": "MIT",
   "bugs": {
