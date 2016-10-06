@@ -1,6 +1,6 @@
 {
   "name": "neville",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A simple node cli script to take a csv file of emails, clean them, and out put to csv",
   "scripts": {
     "test": "test"
