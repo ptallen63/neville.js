@@ -1,6 +1,6 @@
 # Neville JS
 
-## Version 0.2.0
+## Version 0.2.2
 
 *** Very Much a Work in Progess ***
 *** TESTING ***
