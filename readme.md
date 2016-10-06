@@ -16,8 +16,10 @@
  - [x] Record Class
  - [x] Style Icons
  - [x] Output to CSV File
- - [ ] Have output files go to an particular folder??
  - [x] Flags
- - [ ] Make NPM package
+ - [x] Make NPM package
  - [x] Give simple global comand
  - [ ] Make Help Page
+ - [ ] Work on Readme
+ - [ ] Write tests
+ 
