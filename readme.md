@@ -1,6 +1,8 @@
 # Neville JS
 
-## Version 0.2.2
+[![Build Status](https://travis-ci.org/ptallen63/neville.js.svg?branch=master)](https://travis-ci.org/ptallen63/neville.js)
+
+## Version 0.2.3
 
 *** Very Much a Work in Progess ***
 *** TESTING ***
