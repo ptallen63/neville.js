@@ -1,6 +1,6 @@
 # Neville JS
 
-## Version 0.1.1
+## Version 0.2.0
 
 *** Very Much a Work in Progess ***
 *** TESTING ***
@@ -21,5 +21,5 @@
  - [x] Give simple global comand
  - [ ] Make Help Page
  - [ ] Work on Readme
- - [ ] Write tests
+ - [x] Write tests
  
