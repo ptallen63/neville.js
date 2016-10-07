@@ -5,17 +5,13 @@
 
 # Neville JS
 
-[![Build Status](https://travis-ci.org/ptallen63/neville.js.svg?branch=master)](https://travis-ci.org/ptallen63/neville.js)
-
-[![npm version](https://badge.fury.io/js/neville.svg)](https://badge.fury.io/js/neville)
-
-![MitLicensed](https://img.shields.io/github/license/ptallen63/neville.svg)
+[![Build Status](https://travis-ci.org/ptallen63/neville.js.svg?branch=master)](https://travis-ci.org/ptallen63/neville.js) [![npm version](https://badge.fury.io/js/neville.svg)](https://badge.fury.io/js/neville)![MitLicensed](https://img.shields.io/github/license/ptallen63/neville.svg)
 
 Welcome to NevilleJS, a simple node command line email cleaner. This script will take an array of emails and take out duplicates, blanks, and invalid format emails.
 
 
 
-## Version 0.3.1
+## Version 0.3.2
 
 
 
