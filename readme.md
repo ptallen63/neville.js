@@ -11,7 +11,7 @@ Welcome to NevilleJS, a simple node command line email cleaner. This script will
 
 
 
-## Version 0.3.0
+## Version 0.3.1
 
 
 
