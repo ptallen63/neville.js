@@ -1,7 +1,9 @@
 
 
 
-[intro]: https://s3-us-west-2.amazonaws.com/nevillejs/Screen+Shot+2016-10-07+at+9.44.19+AM.png"
+[intro]: https://s3-us-west-2.amazonaws.com/nevillejs/Screen+Shot+2016-10-07+at+9.44.19+AM.png "Intro Screen"
+
+[second_screen]: https://s3-us-west-2.amazonaws.com/nevillejs/neville-screen-second.jpg "Second Screen"
 # Neville JS
 
 [![Build Status](https://travis-ci.org/ptallen63/neville.js.svg?branch=master)](https://travis-ci.org/ptallen63/neville.js)
@@ -22,6 +24,7 @@ Welcome to NevilleJS, a simple node command line email cleaner. This script will
 	$ neville
 
 ![intro][intro]
+![sceond screen][second_screen]
 
 ## Input
 
