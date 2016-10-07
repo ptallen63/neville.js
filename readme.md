@@ -3,7 +3,6 @@
 
 [intro]: https://s3-us-west-2.amazonaws.com/nevillejs/Screen+Shot+2016-10-07+at+9.44.19+AM.png "Intro Screen"
 
-[second_screen]: https://s3-us-west-2.amazonaws.com/nevillejs/neville-screen-second.jpg "Second Screen"
 # Neville JS
 
 [![Build Status](https://travis-ci.org/ptallen63/neville.js.svg?branch=master)](https://travis-ci.org/ptallen63/neville.js)
@@ -24,13 +23,13 @@ Welcome to NevilleJS, a simple node command line email cleaner. This script will
 	$ neville
 
 ![intro][intro]
-![sceond screen][second_screen]
 
-## Input
+
+### Input
 
 When asked for input, you must put in the correct path to your file. Also, your file must be in valid `.csv` format and contact a field of `email` and a field of `id`.
 
-## Output
+### Output
 
 Three files will be outputed:
 - `cleaned.csv` <-- CSV file of your clean emails
