@@ -1,27 +1,40 @@
+
+
+
+[intro]: https://s3-us-west-2.amazonaws.com/nevillejs/Screen+Shot+2016-10-07+at+9.44.19+AM.png "Intro Screen"
+
 # Neville JS
 
 [![Build Status](https://travis-ci.org/ptallen63/neville.js.svg?branch=master)](https://travis-ci.org/ptallen63/neville.js)
 
-## Version 0.2.3
+Welcome to NevilleJS, a simple node command line email cleaner. This script will take an array of emails and take out duplicates, blanks, and invalid format emails.
 
-*** Very Much a Work in Progess ***
-*** TESTING ***
 
-### TODO:
 
- - [x] Remove Blanks
- - [x] Remove Invalid function
- - [x] Reomove Dups Functions
- - [x] Progress Bar
- - [x] Display Art
- - [x] Grab CSV file
- - [x] Record Class
- - [x] Style Icons
- - [x] Output to CSV File
- - [x] Flags
- - [x] Make NPM package
- - [x] Give simple global comand
- - [ ] Make Help Page
- - [ ] Work on Readme
- - [x] Write tests
+## Version 0.3.0
+
+
+
+## Install
+	$ npm install -g neville
+
+## Use
+
+	$ neville
+
+![intro][intro]
+
+
+### Input
+
+When asked for input, you must put in the correct path to your file. Also, your file must be in valid `.csv` format and contact a field of `email` and a field of `id`.
+
+### Output
+
+Three files will be outputed:
+- `cleaned.csv` <-- CSV file of your clean emails
+- `dups.csv` <-- CSV file of duplicate emails
+- `blanks.csv` <-- CSV file of blank emails
+- `invalid.csv` <-- CSV file of emails with invalid format
+
  
