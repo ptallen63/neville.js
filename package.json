@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "description": "A simple node cli script to take a csv file of emails, clean them, and out put to csv",
   "scripts": {
-    "test": "mocha"
+    "test": "istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
