@@ -1,3 +1,4 @@
+/*jshint node: true */
 var mocha = require('mocha');
 require('chai-jasmine');
 var func = require('./lib/functions.js');
@@ -9,7 +10,7 @@ var testArray = [
 	{id: 4, email:"test@test.com"},
 	{id: 5, email:" "},
 	{id: 6, email:"test@test"}
-]
+];
 
 describe('Functions!', function() {
 
@@ -74,7 +75,7 @@ describe('Functions!', function() {
 		it('Should push an object to the Array', function () {
 			expect(typeof cleaned.cleaned[0]).toBe('object');
 			expect(typeof cleaned.cleaned[0]).not.toBe('string');
-		})
+		});
 
 		
 	});
@@ -102,7 +103,7 @@ describe('Functions!', function() {
 		it('Should push an object to the Array', function () {
 			expect(typeof cleaned.cleaned[0]).toBe('object');
 			expect(typeof cleaned.cleaned[0]).not.toBe('string');
-		})
+		});
 
 		
 	});
@@ -130,7 +131,7 @@ describe('Functions!', function() {
 		it('Should push an object to the Array', function () {
 			expect(typeof cleaned.cleaned[0]).toBe('object');
 			expect(typeof cleaned.cleaned[0]).not.toBe('string');
-		})
+		});
 
 		
 	});
