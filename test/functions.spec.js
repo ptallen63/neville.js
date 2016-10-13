@@ -1,7 +1,7 @@
 /*jshint node: true */
 const mocha = require('mocha');
 require('chai-jasmine');
-const fn = require('./lib/functions.js');
+const fn = require('../lib/functions.js');
 
 var testArray = [
 	{id: 1, email:"test@test.com"},
