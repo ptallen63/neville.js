@@ -1,6 +1,7 @@
-var mocha = require('mocha');
+/*jshint node: true */
+const mocha = require('mocha');
 require('chai-jasmine');
-var func = require('./lib/functions.js');
+const fn = require('./lib/functions.js');
 
 var testArray = [
 	{id: 1, email:"test@test.com"},
@@ -9,25 +10,25 @@ var testArray = [
 	{id: 4, email:"test@test.com"},
 	{id: 5, email:" "},
 	{id: 6, email:"test@test"}
-]
+];
 
 describe('Functions!', function() {
 
-	//getEmailPostion();
+	//getEmailPostion()
 	describe('#getEmailPosition()', function () {
 		
 		it('Should take array', function () {
-		 	expect(func.getEmailPosition(0)).toBe(-2);
-		 	expect(func.getEmailPosition(['1'])).toBe(-1);
+		 	expect(fn.getEmailPosition(0)).toBe(-2);
+		 	expect(fn.getEmailPosition(['1'])).toBe(-1);
 		 });
 
 		it('Should return return -1 when email not found', function () {
-		 	expect(func.getEmailPosition(['1'])).toBe(-1);
+		 	expect(fn.getEmailPosition(['1'])).toBe(-1);
 		 });
 
 		it('Should return return pos of email field', function () {
-		 	expect(func.getEmailPosition(['email'])).toBe(0);
-		 	expect(func.getEmailPosition(['id','email'])).toBe(1);
+		 	expect(fn.getEmailPosition(['email'])).toBe(0);
+		 	expect(fn.getEmailPosition(['id','email'])).toBe(1);
 		 });
 	});
 
@@ -35,18 +36,18 @@ describe('Functions!', function() {
 	describe('#getIdPosition()', function () {
 		
 		it('Should take array', function () {
-		 	expect(func.getIdPosition(0)).toBe(-2);
-		 	expect(func.getIdPosition(['1'])).toBe(-1);
+		 	expect(fn.getIdPosition(0)).toBe(-2);
+		 	expect(fn.getIdPosition(['1'])).toBe(-1);
 		 });
 
 		it('Should return return -1 when email not found', function () {
-		 	expect(func.getIdPosition(['1'])).toBe(-1);
-		 	expect(func.getIdPosition(['email'])).toBe(-1);
+		 	expect(fn.getIdPosition(['1'])).toBe(-1);
+		 	expect(fn.getIdPosition(['email'])).toBe(-1);
 		 });
 
 		it('Should return return pos of email field', function () {
-		 	expect(func.getIdPosition(['id'])).toBe(0);
-		 	expect(func.getIdPosition(['id','email'])).toBe(0);
+		 	expect(fn.getIdPosition(['id'])).toBe(0);
+		 	expect(fn.getIdPosition(['id','email'])).toBe(0);
 		 });
 	});
 
@@ -54,7 +55,7 @@ describe('Functions!', function() {
 	describe('#removeDups()', function () {
 			
 
-			var cleaned = func.removeDups(testArray,true);
+			var cleaned = fn.removeDups(testArray,true);
 			
 		it('Shoudl take remove exact email dups', function () {
 			expect(cleaned.cleaned.length).toBe(5);
@@ -74,7 +75,7 @@ describe('Functions!', function() {
 		it('Should push an object to the Array', function () {
 			expect(typeof cleaned.cleaned[0]).toBe('object');
 			expect(typeof cleaned.cleaned[0]).not.toBe('string');
-		})
+		});
 
 		
 	});
@@ -82,7 +83,7 @@ describe('Functions!', function() {
 	//removeBlanks();
 	describe('#removeBlanks()', function () {
 
-			var cleaned = func.removeBlanks(testArray,true);
+			var cleaned = fn.removeBlanks(testArray,true);
 
 		it('Shoudl take remove blank email', function () {
 			expect(cleaned.cleaned.length).toBe(5);
@@ -102,7 +103,7 @@ describe('Functions!', function() {
 		it('Should push an object to the Array', function () {
 			expect(typeof cleaned.cleaned[0]).toBe('object');
 			expect(typeof cleaned.cleaned[0]).not.toBe('string');
-		})
+		});
 
 		
 	});
@@ -110,7 +111,7 @@ describe('Functions!', function() {
 	//removeInvalid();
 	describe('#removeInvalid()', function () {
 
-			var cleaned = func.removeInvalid(testArray,true);
+			var cleaned = fn.removeInvalid(testArray,true);
 
 		it('Shoudl take remove invalid email', function () {
 			expect(cleaned.cleaned.length).toBe(4);
@@ -130,7 +131,7 @@ describe('Functions!', function() {
 		it('Should push an object to the Array', function () {
 			expect(typeof cleaned.cleaned[0]).toBe('object');
 			expect(typeof cleaned.cleaned[0]).not.toBe('string');
-		})
+		});
 
 		
 	});
