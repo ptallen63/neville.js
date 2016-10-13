@@ -2,6 +2,15 @@ var mocha = require('mocha');
 require('chai-jasmine');
 var func = require('./lib/functions.js');
 
+var testArray = [
+	{id: 1, email:"test@test.com"},
+	{id: 2, email:"test1@test.com"},
+	{id: 3, email:"test2@test.com"},
+	{id: 4, email:"test@test.com"},
+	{id: 5, email:" "},
+	{id: 6, email:"test@test"}
+]
+
 describe('Functions!', function() {
 
 	//getEmailPostion();
@@ -43,27 +52,23 @@ describe('Functions!', function() {
 
 	//removeDups();
 	describe('#removeDups()', function () {
-			var array = [
-				{id: 1, email:"test@test.com"},
-				{id: 2, email:"test@test.com"},
-				{id: 3, email:"test@test.com"}
-			];
+			
 
-			var cleaned = func.removeDups(array,true);
-
+			var cleaned = func.removeDups(testArray,true);
+			
 		it('Shoudl take remove exact email dups', function () {
-			expect(cleaned.cleaned.length).toBe(1);
-			expect(cleaned.dups.length).toBe(2);
+			expect(cleaned.cleaned.length).toBe(5);
+			expect(cleaned.dups.length).toBe(1);
 			expect(cleaned.length).toBeUndefined();
 			expect(cleaned.cleaned.length).not.toBe(3);
 		});
 
 		it('Should prodcue a cleaned array', function () {
-			expect(cleaned.cleaned.length).toBe(1);
+			expect(cleaned.cleaned.length).toBe(5);
 		});
 
 		it('Should prodcue a dups array', function () {
-			expect(cleaned.dups.length).toBe(2);
+			expect(cleaned.dups.length).toBe(1);
 		});
 
 		it('Should push an object to the Array', function () {
@@ -76,23 +81,18 @@ describe('Functions!', function() {
 
 	//removeBlanks();
 	describe('#removeBlanks()', function () {
-			var array = [
-				{id: 1, email:"test@test.com"},
-				{id: 2, email:" "},
-				{id: 3, email:"test@test.com"}
-			];
 
-			var cleaned = func.removeBlanks(array,true);
+			var cleaned = func.removeBlanks(testArray,true);
 
 		it('Shoudl take remove blank email', function () {
-			expect(cleaned.cleaned.length).toBe(2);
+			expect(cleaned.cleaned.length).toBe(5);
 			expect(cleaned.blanks.length).toBe(1);
 			expect(cleaned.length).toBeUndefined();
 			expect(cleaned.cleaned.length).not.toBe(3);
 		});
 
 		it('Should prodcue a cleaned array', function () {
-			expect(cleaned.cleaned.length).toBe(2);
+			expect(cleaned.cleaned.length).toBe(5);
 		});
 
 		it('Should prodcue a blanks array', function () {
@@ -109,24 +109,18 @@ describe('Functions!', function() {
 
 	//removeInvalid();
 	describe('#removeInvalid()', function () {
-			var array = [
-				{id: 1, email:"test@test.com"},
-				{id: 2, email:"test.com"},
-				{id: 3, email:"test@test.com"},
-				{id: 3, email:""}
-			];
 
-			var cleaned = func.removeInvalid(array,true);
+			var cleaned = func.removeInvalid(testArray,true);
 
 		it('Shoudl take remove invalid email', function () {
-			expect(cleaned.cleaned.length).toBe(2);
+			expect(cleaned.cleaned.length).toBe(4);
 			expect(cleaned.invalid.length).toBe(2);
 			expect(cleaned.length).toBeUndefined();
 			expect(cleaned.cleaned.length).not.toBe(3);
 		});
 
 		it('Should prodcue a cleaned array', function () {
-			expect(cleaned.cleaned.length).toBe(2);
+			expect(cleaned.cleaned.length).toBe(4);
 		});
 
 		it('Should prodcue a invalid array', function () {
