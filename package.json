@@ -36,6 +36,9 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-jasmine": "^1.0.7",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-jslint": "^1.0.5",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.0"
   }
