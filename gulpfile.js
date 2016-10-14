@@ -2,7 +2,6 @@
 'use strict';
 
 const gulp = require('gulp');
-const jslint = require('gulp-jslint');
 const jshint = require('gulp-jshint');
 const istanbul = require('gulp-istanbul');
 const mocha = require('gulp-mocha');
