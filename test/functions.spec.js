@@ -12,7 +12,7 @@ var testArray = [
 	{id: 6, email:"test@test"}
 ];
 
-describe('Functions!', function() {
+describe('functions.js', function() {
 
 	//getEmailPostion()
 	describe('#getEmailPosition()', function () {
