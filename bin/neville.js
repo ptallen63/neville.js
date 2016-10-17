@@ -1,13 +1,14 @@
 #!/usr/bin/env node
  
 var lib= require('../lib/index.js');
+var package = require('../package.json');
 var fs = require('fs');
+
 
 var neville = lib.neville;
 var help = false; 
 var version = false;
 
-var package = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 
 process.argv.forEach(function (val) {
   //Help Flag
