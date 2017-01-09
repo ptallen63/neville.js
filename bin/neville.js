@@ -1,13 +1,10 @@
 #!/usr/bin/env node
  
-var lib= require('../lib/index.js');
-var package = require('../package.json');
-var fs = require('fs');
+const { neville }= require('../lib/index.js');
+const  package = require('../package.json');
 
-
-var neville = lib.neville;
-var help = false; 
-var version = false;
+let  help = false; 
+let  version = false;
 
 
 process.argv.forEach(function (val) {
@@ -17,7 +14,7 @@ process.argv.forEach(function (val) {
   }
 
   versionArray = ['-V','-v','-version','-Version']
-  for (var i = versionArray.length - 1; i >= 0; i--) {
+  for (let i = versionArray.length - 1; i >= 0; i--) {
   	
   		if (val === versionArray[i]){
   			version = true;
