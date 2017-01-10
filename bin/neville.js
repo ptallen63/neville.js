@@ -1,14 +1,11 @@
 #!/usr/bin/env node
- 
-var lib= require('../lib/index.js');
-var package = require('../package.json');
-var fs = require('fs');
+'use strict';
+const lib = require('../lib/index.js');
+const  pkg = require('../package.json');
 
-
-var neville = lib.neville;
-var help = false; 
-var version = false;
-
+let  help = false; 
+let  version = false;
+const neville = lib.neville
 
 process.argv.forEach(function (val) {
   //Help Flag
@@ -16,8 +13,8 @@ process.argv.forEach(function (val) {
   	help = true;
   }
 
-  versionArray = ['-V','-v','-version','-Version']
-  for (var i = versionArray.length - 1; i >= 0; i--) {
+  let versionArray = ['-V','-v','-version','-Version']
+  for (let i = versionArray.length - 1; i >= 0; i--) {
   	
   		if (val === versionArray[i]){
   			version = true;
@@ -29,13 +26,13 @@ process.argv.forEach(function (val) {
 });
 
 if(version){
-		console.log("v"+package.version)
+		console.log("v"+pkg.version)
     process.exit();
 }
 
 
 if(help){
-	console.log('Type "neville" in the command line, then enter in the path to the .csv file you want cleaned.');
+	console.log('Type "neville" in the command line, then enter in the path to the .csv file you want cleaned. \n You can find  more help at https://github.com/ptallen63/neville.js');
 }
 else {
 	neville();
