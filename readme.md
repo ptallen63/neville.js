@@ -11,7 +11,7 @@ Welcome to NevilleJS, a simple node command line email cleaner. This script will
 
 
 
-## Version 0.6.6
+## Version 0.7.0
 
 
 
@@ -27,7 +27,7 @@ Welcome to NevilleJS, a simple node command line email cleaner. This script will
 
 ### Input
 
-When asked for input, you must put in the correct path to your file. Also, your file must be in valid `.csv` format and contact a field of `email` and a field of `id`.
+When asked for input, you must put in the correct path to your file. Also, your file must be in valid `.csv` format and must contain a contact field of `email` and a field of `id`.
 
 ### Output
 
