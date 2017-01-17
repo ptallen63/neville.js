@@ -37,7 +37,7 @@ Three files will be outputed:
 - `blanks.csv` <-- CSV file of blank emails
 - `invalid.csv` <-- CSV file of emails with invalid format
 
-## LISCENSE
+## LICENSE 
 
 MIT
 
@@ -62,5 +62,3 @@ MIT
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE.
-
- 
