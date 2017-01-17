@@ -4,7 +4,7 @@
 
 Welcome to NevilleJS, a simple node command line email cleaner. This script will take an array of emails and take out duplicates, blanks, and invalid format emails.
 
-## Version 0.7.1
+## Version 0.7.2
 
 ## Install
 
